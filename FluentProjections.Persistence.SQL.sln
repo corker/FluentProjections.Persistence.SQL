@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentProjections.Persistence.SQL", "FluentProjections.Persistence.SQL\FluentProjections.Persistence.SQL.csproj", "{E848706C-F9A3-4B73-8136-BBCFFB02C5C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentProjections.Persistence.SQL.Tests", "FluentProjections.Persistence.SQL.Tests\FluentProjections.Persistence.SQL.Tests.csproj", "{DF9AABA1-2385-45B9-BA4E-54F68FDB1AEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E848706C-F9A3-4B73-8136-BBCFFB02C5C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E848706C-F9A3-4B73-8136-BBCFFB02C5C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E848706C-F9A3-4B73-8136-BBCFFB02C5C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E848706C-F9A3-4B73-8136-BBCFFB02C5C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF9AABA1-2385-45B9-BA4E-54F68FDB1AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF9AABA1-2385-45B9-BA4E-54F68FDB1AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF9AABA1-2385-45B9-BA4E-54F68FDB1AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF9AABA1-2385-45B9-BA4E-54F68FDB1AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
