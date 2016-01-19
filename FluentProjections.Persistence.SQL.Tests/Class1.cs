@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using NUnit.Framework;
 
 namespace FluentProjections.Persistence.SQL.Tests
 {
+    [TestFixture]
     public class Class1
     {
+        [Test]
+        public void When_()
+        {
+        }
     }
 }
