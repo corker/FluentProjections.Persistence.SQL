@@ -41,8 +41,8 @@
       <HintPath>..\packages\DapperExtensions.1.4.4\lib\net40\DapperExtensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FluentProjections, Version=2.0.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentProjections.2.0.8.0\lib\net45\FluentProjections.dll</HintPath>
+    <Reference Include="FluentProjections, Version=2.0.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentProjections.2.0.10.0\lib\net45\FluentProjections.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PersistenceFactory.cs" />
+    <Compile Include="SqlPersistenceFactory.cs" />
     <Compile Include="SqlPersistence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
