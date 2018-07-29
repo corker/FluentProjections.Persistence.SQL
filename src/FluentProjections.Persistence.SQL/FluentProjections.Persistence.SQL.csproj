@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
+    <Authors>Michael Borisov</Authors>
+    <Copyright>Copyright Michael Borisov © 2018</Copyright>
+    <Description>An extension for FluentProjections package. Impements persistence with SQL database package.</Description>
+    <PackageTags>CQRS;EventSource</PackageTags>
+    <PackageLicenseUrl>https://raw.github.com/corker/FluentProjections/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/corker/FluentProjections</PackageProjectUrl>
+  </PropertyGroup>
+
+  <!-- common NuGet package refs that affect all projects -->
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.5" />
+    <PackageReference Include="Dapper.SimpleCRUD" Version="2.0.0" />
+    <PackageReference Include="FluentProjections" Version="3.0.1" />
+  </ItemGroup>
+
+  <!-- common properties that affect all projects -->
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+  </PropertyGroup>
+
+  <!-- .NET Standard 2.0 references, compilation flags and build options -->
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+    <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+  </ItemGroup>
+
+  <!-- .NET 4.5.1 references, compilation flags and build options -->
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net451'">
+    <DefineConstants>NET451;NETFULL</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net451'">
+  </ItemGroup>
+
+</Project>

@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentProjections.Persistence.SQL", "FluentProjections.Persistence.SQL\FluentProjections.Persistence.SQL.csproj", "{E848706C-F9A3-4B73-8136-BBCFFB02C5C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentProjections.Persistence.SQL", "src\FluentProjections.Persistence.SQL\FluentProjections.Persistence.SQL.csproj", "{E848706C-F9A3-4B73-8136-BBCFFB02C5C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentProjections.Persistence.SQL.Tests", "FluentProjections.Persistence.SQL.Tests\FluentProjections.Persistence.SQL.Tests.csproj", "{DF9AABA1-2385-45B9-BA4E-54F68FDB1AEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentProjections.Persistence.SQL.Tests", "tests\FluentProjections.Persistence.SQL.Tests\FluentProjections.Persistence.SQL.Tests.csproj", "{DF9AABA1-2385-45B9-BA4E-54F68FDB1AEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{20294644-C745-4C27-A175-1BDEAF28D86F}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+		LICENSE = LICENSE
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +32,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FEA0D342-2B47-4C10-8DA0-29F2E969A547}
 	EndGlobalSection
 EndGlobal
