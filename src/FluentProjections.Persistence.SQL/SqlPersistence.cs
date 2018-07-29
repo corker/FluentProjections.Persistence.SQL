@@ -19,7 +19,6 @@ namespace FluentProjections.Persistence.SQL
         public SqlPersistence(IDbConnection connection)
         {
             _connection = connection;
-            _connection.Open();
             _transaction = _connection.BeginTransaction();
         }
 
@@ -33,7 +32,7 @@ namespace FluentProjections.Persistence.SQL
             where TProjection : class
         {
             var conditions = new ExpandoObject();
-            foreach (var x in values) ((IDictionary<string, object>)conditions).Add(x.Property.Name, x.Value);
+            foreach (var x in values) ((IDictionary<string, object>) conditions).Add(x.Property.Name, x.Value);
             return await _connection.GetListAsync<TProjection>(conditions, _transaction);
         }
 
@@ -50,7 +49,7 @@ namespace FluentProjections.Persistence.SQL
         public async Task RemoveAsync<TProjection>(IEnumerable<FilterValue> values) where TProjection : class
         {
             var conditions = new ExpandoObject();
-            foreach (var x in values) ((IDictionary<string, object>)conditions).Add(x.Property.Name, x.Value);
+            foreach (var x in values) ((IDictionary<string, object>) conditions).Add(x.Property.Name, x.Value);
             await _connection.DeleteListAsync<TProjection>(conditions, _transaction);
         }
 

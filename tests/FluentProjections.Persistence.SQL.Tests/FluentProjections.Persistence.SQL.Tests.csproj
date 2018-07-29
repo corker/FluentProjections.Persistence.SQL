@@ -24,13 +24,4 @@
     <ProjectReference Include="..\..\src\FluentProjections.Persistence.SQL\FluentProjections.Persistence.SQL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="database.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="database_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

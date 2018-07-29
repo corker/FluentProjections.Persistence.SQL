@@ -1,5 +1,5 @@
-﻿using System.Data.SqlClient;
-using System.IO;
+﻿using System;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
@@ -7,34 +7,34 @@ using Xunit;
 
 namespace FluentProjections.Persistence.SQL.Tests
 {
-    public class SqlPersistenceTests
+    public class SqlPersistenceTests : IDisposable
     {
         public SqlPersistenceTests()
         {
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.SQLServer);
+            _localdb = new LocalDb();
+            using (var connection = _localdb.OpenConnection())
+            {
+                connection.Execute("CREATE TABLE TestProjection(Id INTEGER PRIMARY KEY, Value INTEGER)");
+            }
         }
 
-        private static SqlConnection CreateConnection()
+        public void Dispose()
         {
-            var connection = CreateConnectionImpl();
-            connection.Open();
-            connection.Execute("DROP TABLE IF EXISTS TestProjection");
-            connection.Execute("CREATE TABLE TestProjection(Id INTEGER PRIMARY KEY, Value INTEGER)");
-            return connection;
+            _localdb.Dispose();
+            _localdb = null;
         }
 
-        private static SqlPersistenceFactory CreateFactory()
+        private LocalDb _localdb;
+
+        private SqlPersistenceFactory CreateFactory()
         {
             return new SqlPersistenceFactory(CreateConnectionImpl);
         }
 
-        private static SqlConnection CreateConnectionImpl()
+        private IDbConnection CreateConnectionImpl()
         {
-            var path = Path.GetFullPath("database.mdf");
-            var connectionString =
-                $"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={path};Integrated Security=True";
-            var connection = new SqlConnection(connectionString);
-            return connection;
+            return _localdb.OpenConnection();
         }
 
         private class TestAddNewMessage
@@ -48,10 +48,10 @@ namespace FluentProjections.Persistence.SQL.Tests
             public int Value { get; set; }
         }
 
-        public class TestProjection
+        private class TestProjection
         {
-            [Key, Required]
-            public int Id { get; set; }
+            [Key] [Required] public int Id { get; set; }
+
             public int Value { get; set; }
         }
 
@@ -92,7 +92,7 @@ namespace FluentProjections.Persistence.SQL.Tests
         [Fact]
         public async Task When_add_new_message_should_add_a_new_record()
         {
-            using (var connection = CreateConnection())
+            using (var connection = _localdb.OpenConnection())
             {
                 // Arrange
                 var factory = CreateFactory();
@@ -110,7 +110,7 @@ namespace FluentProjections.Persistence.SQL.Tests
         [Fact]
         public async Task When_remove_message_should_remove_the_record()
         {
-            using (var connection = CreateConnection())
+            using (var connection = _localdb.OpenConnection())
             {
                 // Arrange
                 var factory = CreateFactory();
@@ -129,7 +129,7 @@ namespace FluentProjections.Persistence.SQL.Tests
         [Fact]
         public async Task When_update_message_should_update_the_record()
         {
-            using (var connection = CreateConnection())
+            using (var connection = _localdb.OpenConnection())
             {
                 // Arrange
                 var factory = CreateFactory();
